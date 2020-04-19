@@ -15,7 +15,8 @@ body {
 
 #left_panel {
 	display: flex;
-	flex-basis: 30%;
+	flex-basis: 40%;
+	background-color: white;
 }
 
 #right_panel {
