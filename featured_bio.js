@@ -2,7 +2,7 @@ function BioImageView(props) {
 	return React.createElement(
 		"div",
 		{ id: "bio_image_view" },
-		React.createElement(BioImage, { image_url: "mike.png" })
+		React.createElement(BioImage, { image_url: props.image_url })
 	);
 }
 
@@ -34,6 +34,7 @@ function BioInteractiveText(props) {
 	}
 
 	function showImage(e) {
+		$("#bio_image_view > img").attr("src", props.image_url);
 		$("#bio_image_view").css("transform", "perspective(500px) translate3d(0px, 0px, 0px)");
 		$("#bio_image_view").fadeIn();
 	}
@@ -62,11 +63,11 @@ function Bio() {
 		React.createElement(
 			"h1",
 			null,
-			React.createElement(BioInteractiveText, { text: "Michael Barrett" }),
+			React.createElement(BioInteractiveText, { text: "Michael Barrett", image_url: "mike.png" }),
 			React.createElement(BioText, { text: " is a Software Engineer based in the " }),
-			React.createElement(BioInteractiveText, { text: "Bay Area" }),
+			React.createElement(BioInteractiveText, { text: "Bay Area", image_url: "BarrettBayBridge.jpg" }),
 			React.createElement(BioText, { text: " currently working at " }),
-			React.createElement(BioInteractiveText, { text: "Medium." })
+			React.createElement(BioInteractiveText, { text: "Medium.", image_url: "BarrettMedium.jpg" })
 		),
 		React.createElement(
 			"div",
@@ -84,8 +85,7 @@ function FeaturedSection() {
 	return React.createElement(
 		"div",
 		{ id: "featured_section" },
-		React.createElement(Bio, null),
-		React.createElement(BioImageView, null)
+		React.createElement(Bio, null)
 	);
 }
 

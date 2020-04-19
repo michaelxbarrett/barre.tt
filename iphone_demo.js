@@ -1,7 +1,7 @@
 var app = {
 	"Skills": [{ name: "XCode", image_url: "XcodeIcon.png" }, { name: "Swift", image_url: "SwiftIcon.png" }, { name: "ObjC", image_url: "ObjCIcon.png" }],
 	"Job History": [{ name: "Medium", image_url: "MediumIcon.png" }],
-	"Follow Me": [{ name: "Instagram", image_url: "InstagramIcon.png" }, { name: "Twitter", image_url: "TwitterIcon.png" }]
+	"Follow Me": [{ name: "Instagram", image_url: "InstagramIcon.png", link: "https://instagram.com/miketotheworld" }, { name: "Twitter", image_url: "TwitterIcon.png", link: "https://twitter.com/bunandcheese_" }]
 };
 
 function Phone(props) {
@@ -17,12 +17,12 @@ function Phone(props) {
 		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name });
 	});
 	var socialIcons = app["Follow Me"].map(function (skill) {
-		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name });
+		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name, link: skill.link });
 	});
 	return React.createElement(
 		"div",
 		{ id: "iphone", onClick: onClick },
-		React.createElement(Overlay, { children: React.createElement(SkillsGroup, null) }),
+		React.createElement(Overlay, { children: React.createElement(AppFolderPopup, null) }),
 		React.createElement(AppGroupIcon, { image_url: "applogo.png", name: "Skills", children: skillIcons }),
 		React.createElement(AppGroupIcon, { image_url: "applogo.png", name: "Job History", children: jobIcons }),
 		React.createElement(AppGroupIcon, { image_url: "applogo.png", name: "Follow Me", children: socialIcons })
@@ -42,7 +42,7 @@ function AppGroupIcon(props) {
 		e.stopPropagation();
 
 		$("#app-group").show();
-		openSkillsGroup();
+		openAppFolderPopup();
 		var position = $(e.currentTarget).position();
 		$("#app-group").css("opacity", 1);
 		$("#app-group").removeClass("app_group_collapsed");
@@ -56,7 +56,7 @@ function AppGroupIcon(props) {
 		$(e.currentTarget).css("filter", "");
 	}
 
-	function openSkillsGroup() {
+	function openAppFolderPopup() {
 		ReactDOM.render(React.createElement(AppGroupContent, { children: props.children }), document.getElementById('app-group-content'));
 	}
 
@@ -97,9 +97,14 @@ function FolderPreview(props) {
 }
 
 function AppIcon(props) {
+	function onClick(e) {
+		if (props.link) {
+			window.open(props.link);
+		}
+	}
 	return React.createElement(
 		"div",
-		{ className: "app_icon" },
+		{ onClick: onClick, className: "app_icon" },
 		React.createElement(
 			"div",
 			{ className: "app_image_container" },
@@ -134,7 +139,7 @@ function AppGroup(props) {
 	);
 }
 
-function SkillsGroup(props) {
+function AppFolderPopup(props) {
 	return React.createElement(
 		"div",
 		{ id: "app-group", className: "app_group_collapsed" },

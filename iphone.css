@@ -1,12 +1,19 @@
 #iphone_demo {
-	padding: 54px 20px 110px;
 	box-sizing: border-box;
 	margin: auto;
-	height: 601;
-	width: 292;
+	padding-top: 205.7%;
+	max-width: 370;
 	background-image: url(empty-iphone.png);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
+	position: relative;
+}
+
+#iphone_panel {
+	max-width: 330px;
+	margin: auto;
+	position: relative;
+	width: 100%;
 }
 
 #iphone {
@@ -14,16 +21,20 @@
 	width: 100%;
 	box-sizing: border-box;
 	display: flex;
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 17% 6% 36%;
 }
 
 .app_icon {
 	height: 60px;
 	width: 60px;
-	flex-basis: 23%;
+	flex-basis: 25%;
 	z-index: 10;
 	text-align: center;
 	position: relative;
+	color: #efefef;
 }
 
 .app_icon > div > img {
@@ -44,12 +55,12 @@
 
 .app_icon > p {
 	margin: 4px 0 0;
-	font-size: 8px;
+	font-size: 10px;
 	font-family: sans-serif;
 }
 
 #app-group {
-	width: 90%;
+	width: 80%;
 	height: 30%;
 	position: relative;
 	box-sizing: border-box;
@@ -105,8 +116,8 @@
 
 .app_image_container {
 	position: relative;
-	width: 50px;
-	height: 50px;
+	width: 83%;
+	padding-top: 83%;
 	margin: auto;
 }
 
@@ -126,4 +137,7 @@
 	padding: 5px;
 	box-sizing: border-box;
 	border-radius: 5px;
+	position: absolute;
+	top: 0;
+	left: 0;
 }

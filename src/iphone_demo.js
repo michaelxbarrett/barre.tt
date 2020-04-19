@@ -8,8 +8,8 @@ const app = {
 	{name: "Medium", image_url: "MediumIcon.png"},
 	],
 	"Follow Me": [
-	{name: "Instagram", image_url: "InstagramIcon.png"},
-	{name: "Twitter", image_url: "TwitterIcon.png"},
+	{name: "Instagram", image_url: "InstagramIcon.png", link: "https://instagram.com/miketotheworld"},
+	{name: "Twitter", image_url: "TwitterIcon.png", link:"https://twitter.com/bunandcheese_"},
 	]
 }
 
@@ -27,12 +27,12 @@ function Phone(props) {
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name}/>
 		)
 	const socialIcons = app["Follow Me"].map((skill) =>
-		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name}/>
+		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
 		)
 	return (
 		<div id="iphone" onClick={onClick}>
 		<Overlay children={
-			<SkillsGroup/>
+			<AppFolderPopup/>
 		}/>
 		<AppGroupIcon image_url="applogo.png" name="Skills" children={ 
 			skillIcons
@@ -56,7 +56,7 @@ function AppGroupIcon(props) {
 		e.stopPropagation();
 
 		$("#app-group").show()			
-		openSkillsGroup()
+		openAppFolderPopup()
 		const position = $(e.currentTarget).position()
 		$("#app-group").css("opacity", 1)
 		$("#app-group").removeClass("app_group_collapsed")
@@ -70,7 +70,7 @@ function AppGroupIcon(props) {
 		$(e.currentTarget).css("filter", "")
 	}
 
-	function openSkillsGroup() {
+	function openAppFolderPopup() {
 		ReactDOM.render(
 			<AppGroupContent children={
 				props.children
@@ -101,7 +101,12 @@ function FolderPreview(props) {
 }
 
 function AppIcon(props) {
-	return <div className="app_icon"><div className="app_image_container"><img src={props.image_url}/></div><p>{props.name}</p></div>
+	function onClick(e) {
+		if (props.link) {
+			window.open(props.link)
+		}
+	}
+	return <div onClick={onClick} className="app_icon"><div className="app_image_container"><img src={props.image_url}/></div><p>{props.name}</p></div>
 }
 
 
@@ -124,7 +129,7 @@ function AppGroup(props) {
 		)
 }
 
-function SkillsGroup(props) {
+function AppFolderPopup(props) {
 	return ( 
 		<div id="app-group" className="app_group_collapsed">
 		<AppGroup/>

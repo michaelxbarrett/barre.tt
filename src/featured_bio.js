@@ -1,5 +1,5 @@
 function BioImageView(props) {
-	return <div id="bio_image_view"><BioImage image_url="mike.png"/></div>
+	return <div id="bio_image_view"><BioImage image_url={props.image_url}/></div>
 }
 
 function BioImage(props) {
@@ -26,6 +26,7 @@ function BioInteractiveText(props) {
 	}
 
 	function showImage(e) {
+		$("#bio_image_view > img").attr("src", props.image_url)
 		$("#bio_image_view").css("transform", "perspective(500px) translate3d(0px, 0px, 0px)")
 		$("#bio_image_view").fadeIn()
 	}
@@ -47,11 +48,11 @@ function Bio() {
 	return (
 		<div id="bio">
 		<h1>
-		<BioInteractiveText text="Michael Barrett"/>
+		<BioInteractiveText text="Michael Barrett" image_url="mike.png"/>
 		<BioText text=" is a Software Engineer based in the "/>
-		<BioInteractiveText text="Bay Area"/>
+		<BioInteractiveText text="Bay Area" image_url="BarrettBayBridge.jpg"/>
 		<BioText text=" currently working at "/>
-		<BioInteractiveText text="Medium." />
+		<BioInteractiveText text="Medium." image_url="BarrettMedium.jpg"/>
 		</h1>
 		<div id="bio_background">
 		<h1>Barrett.</h1>
@@ -64,7 +65,7 @@ function FeaturedSection() {
 	return (
 		<div id="featured_section">
 		<Bio />
-		<BioImageView />
+		{ /* <BioImageView /> */ }
 		</div>
 		);
 }

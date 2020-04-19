@@ -29,13 +29,13 @@
 	color: #88f388;
 	text-align: center;
 	opacity: .2;
+	display: none;
 }
 
 #featured_section {
 	display: flex;
 	justify-content: center;
 	padding: 20% 0;
-	height: 100px;
 }
 
 .bio_interactive_text:hover {
@@ -62,9 +62,10 @@
 
 #bio_image_view > img {
 	height: 400px;
+	filter: brightness(50%);
 }
 
 body {
-	color: #efefef;
-	background-color: #232323;
+	color: #232323;
+	background-color: #747474;
 }
