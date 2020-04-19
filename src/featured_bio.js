@@ -26,9 +26,10 @@ function BioInteractiveText(props) {
 			return
 		}
 		phoneBackground.fadeOut(400, function() {
-            phoneBackground.attr("src", props.image_url)
-        })
-        .fadeIn(400);
+			phoneBackground.attr("src", props.image_url)
+
+		})
+		.fadeIn(400);
 	}
 
 	function onMouseEnter(e) {
@@ -45,7 +46,7 @@ function BioInteractiveText(props) {
 
 function Bio() {
 	return (
-		<div id="bio">
+		<div id="bio" data-tilt data-tilt-maxTilt="5" data-tilt-perspective="2000" data-tilt-scale="1.2">
 		<h1>
 		<BioInteractiveText text="Michael Barrett" image_url="images/mike.png"/>
 		<BioText text=" is a Software Engineer based in the "/>
@@ -64,9 +65,9 @@ function FeaturedSection() {
 	return (
 		<div id="featured_section">
 		<Bio />
-		{ /* <BioImageView /> */ }
-		</div>
-		);
+	{ /* <BioImageView /> */ }
+	</div>
+	);
 }
 
 ReactDOM.render(

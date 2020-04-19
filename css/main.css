@@ -4,6 +4,8 @@ html {
 
 body {
 	margin: 0;
+	color: #232323;
+	background: white;
 }
 
 #home {
@@ -23,4 +25,26 @@ body {
 
 #right_panel {
 	flex-basis:60%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	background-size: cover;
+}
+
+@media only screen and (max-width: 600px) {
+	#home {
+		flex-direction: column;
+		height: initial;
+	}
+
+	#left_panel {
+		flex-basis: 100%;
+		width: 100%
+	}
+
+	#right_panel {
+		flex-basis:100%;
+		width: 100%
+	}
+
 }

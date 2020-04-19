@@ -128,7 +128,7 @@ function AppGroupIcon(props) {
 		<FolderPreviewAppIcon image_url={skill.image_url}/>
 		)
 
-	return <div className="app_icon" onMouseDown={onMouseDown} onMouseOut={onMouseUp} onMouseUp={onMouseUp} onClick={onClick}><div className="app_image_container">
+	return <div className="app_icon hvr-pulse-shrink" onMouseDown={onMouseDown} onMouseOut={onMouseUp} onMouseUp={onMouseUp} onClick={onClick}><div className="app_image_container">
 	<FolderPreview children={
 		appIcons
 	}/>
@@ -151,7 +151,7 @@ function AppIcon(props) {
 			window.open(props.link)
 		}
 	}
-	return <div onClick={onClick} className="app_icon"><div className="app_image_container"><img src={props.image_url}/></div><p>{props.name}</p></div>
+	return <div onClick={onClick} className={`app_icon ${!!props.link && "hvr-pulse-shrink"}`}><div className="app_image_container"><img src={props.image_url}/></div><p>{props.name}</p></div>
 }
 
 

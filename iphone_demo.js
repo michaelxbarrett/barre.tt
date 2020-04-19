@@ -105,7 +105,7 @@ function AppGroupIcon(props) {
 
 	return React.createElement(
 		"div",
-		{ className: "app_icon", onMouseDown: onMouseDown, onMouseOut: onMouseUp, onMouseUp: onMouseUp, onClick: onClick },
+		{ className: "app_icon hvr-pulse-shrink", onMouseDown: onMouseDown, onMouseOut: onMouseUp, onMouseUp: onMouseUp, onClick: onClick },
 		React.createElement(
 			"div",
 			{ className: "app_image_container" },
@@ -143,7 +143,7 @@ function AppIcon(props) {
 	}
 	return React.createElement(
 		"div",
-		{ onClick: onClick, className: "app_icon" },
+		{ onClick: onClick, className: "app_icon " + (!!props.link && "hvr-pulse-shrink") },
 		React.createElement(
 			"div",
 			{ className: "app_image_container" },

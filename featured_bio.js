@@ -57,7 +57,7 @@ function BioInteractiveText(props) {
 function Bio() {
 	return React.createElement(
 		"div",
-		{ id: "bio" },
+		{ id: "bio", "data-tilt": true, "data-tilt-maxTilt": "5", "data-tilt-perspective": "2000", "data-tilt-scale": "1.2" },
 		React.createElement(
 			"h1",
 			null,

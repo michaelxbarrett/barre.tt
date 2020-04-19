@@ -8,9 +8,10 @@
 #bio {
 	font-family: 'Inter', sans-serif;
 	width: 60%;
-	font-size: 20px;
+	font-size: 15px;
 	height: fit-content;
 	position: relative;
+	transform: translateZ(10px);
 }
 
 #bio_background {
@@ -36,6 +37,8 @@
 	display: flex;
 	justify-content: center;
 	padding: 20% 0;
+	transform-style: preserve-3d;
+	
 }
 
 .bio_interactive_text:hover {
@@ -63,9 +66,4 @@
 #bio_image_view > img {
 	height: 400px;
 	filter: brightness(50%);
-}
-
-body {
-	color: #232323;
-	background-color: #747474;
 }
