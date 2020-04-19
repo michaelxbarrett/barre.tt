@@ -1,13 +1,45 @@
 var app = {
-	"Skills": [{ name: "XCode", image_url: "XcodeIcon.png" }, { name: "Swift", image_url: "SwiftIcon.png" }, { name: "ObjC", image_url: "ObjCIcon.png" }],
-	"Job History": [{ name: "Medium", image_url: "MediumIcon.png" }],
-	"Follow Me": [{ name: "Instagram", image_url: "InstagramIcon.png", link: "https://instagram.com/miketotheworld" }, { name: "Twitter", image_url: "TwitterIcon.png", link: "https://twitter.com/bunandcheese_" }]
+	"Skills": [{ name: "XCode", image_url: "images/XcodeIcon.png" }, { name: "Swift", image_url: "images/SwiftIcon.png" }, { name: "ObjC", image_url: "images/ObjCIcon.png" }],
+	"Job History": [{ name: "Medium (iOS)", image_url: "images/MediumIcon.png" }],
+	"Follow Me": [{ name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld" }, { name: "Twitter", image_url: "images/TwitterIcon.png", link: "https://twitter.com/bunandcheese_" }],
+	"Dock": [{ image_url: "images/PhoneIcon.png", link: "tel:1-973-897-2538" }, { image_url: "images/EmailIcon.png", link: "mailto:michaelxbarrett@gmail.com" }]
 };
+
+function PhoneBackground(props) {
+	return React.createElement(
+		"div",
+		{ id: "phone-background" },
+		React.createElement("img", { src: "images/mike.png" })
+	);
+}
+
+function PhoneFrame(props) {
+	return React.createElement(
+		"div",
+		{ id: "phone-frame" },
+		React.createElement("img", { src: "images/iPhoneMockup.png" })
+	);
+}
+
+function BottomDock(props) {
+	var dockIcons = app["Dock"].map(function (icon) {
+		return React.createElement(AppIcon, { link: icon.link, image_url: icon.image_url, name: icon.name, key: icon.name });
+	});
+
+	return React.createElement(
+		"div",
+		{ id: "phone-dock" },
+		dockIcons
+	);
+}
 
 function Phone(props) {
 	function onClick(e) {
 		$("#app-group").css("opacity", 0);
 		$("#app-group").addClass("app_group_collapsed");
+		$("#overlay").hide();
+		$("#overlay").css("z-index", "");
+		$("#phone-frame").css("z-index", "");
 	}
 
 	var skillIcons = app["Skills"].map(function (skill) {
@@ -19,13 +51,17 @@ function Phone(props) {
 	var socialIcons = app["Follow Me"].map(function (skill) {
 		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name, link: skill.link });
 	});
+
 	return React.createElement(
 		"div",
 		{ id: "iphone", onClick: onClick },
+		React.createElement(PhoneBackground, null),
+		React.createElement(BottomDock, null),
+		React.createElement(AppGroupIcon, { name: "Skills", children: skillIcons }),
+		React.createElement(AppGroupIcon, { name: "Job History", children: jobIcons }),
+		React.createElement(AppGroupIcon, { name: "Follow Me", children: socialIcons }),
 		React.createElement(Overlay, { children: React.createElement(AppFolderPopup, null) }),
-		React.createElement(AppGroupIcon, { image_url: "applogo.png", name: "Skills", children: skillIcons }),
-		React.createElement(AppGroupIcon, { image_url: "applogo.png", name: "Job History", children: jobIcons }),
-		React.createElement(AppGroupIcon, { image_url: "applogo.png", name: "Follow Me", children: socialIcons })
+		React.createElement(PhoneFrame, null)
 	);
 }
 
@@ -46,6 +82,9 @@ function AppGroupIcon(props) {
 		var position = $(e.currentTarget).position();
 		$("#app-group").css("opacity", 1);
 		$("#app-group").removeClass("app_group_collapsed");
+		$("#overlay").show();
+		$("#overlay").css("z-index", "50");
+		$("#phone-frame").css("z-index", "100");
 	}
 
 	function onMouseDown(e) {
@@ -134,7 +173,7 @@ function AppGroup(props) {
 	return React.createElement(
 		React.Fragment,
 		null,
-		React.createElement(AppGroupContent, { children: [React.createElement(AppIcon, { image_url: "applogo.png", name: "App Name", key: "app1" })] }),
+		React.createElement(AppGroupContent, { children: [React.createElement(AppIcon, { name: "App Name", key: "app1" })] }),
 		React.createElement("div", { className: "app-group-background" })
 	);
 }
@@ -148,4 +187,6 @@ function AppFolderPopup(props) {
 	);
 }
 
-ReactDOM.render(React.createElement(Phone, null), document.getElementById('iphone_demo'));
+ReactDOM.render(React.createElement(Phone, null), document.getElementById('iphone_demo'), function (x) {
+	return $("#overlay").hide();
+});

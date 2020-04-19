@@ -20,15 +20,15 @@ function BioInteractiveText(props) {
 		$(".bio_interactive_text").addClass("not_underlined")
 	}
 
-	function hideImage(e) {
-		$("#bio_image_view").css("transform", "translate3d(0px, 1000px, -1000px)")
-		$("#bio_image_view").fadeOut()
-	}
-
 	function showImage(e) {
-		$("#bio_image_view > img").attr("src", props.image_url)
-		$("#bio_image_view").css("transform", "perspective(500px) translate3d(0px, 0px, 0px)")
-		$("#bio_image_view").fadeIn()
+		const phoneBackground = $("#phone-background > img")
+		if (phoneBackground.attr("src") == props.image_url) {
+			return
+		}
+		phoneBackground.fadeOut(400, function() {
+            phoneBackground.attr("src", props.image_url)
+        })
+        .fadeIn(400);
 	}
 
 	function onMouseEnter(e) {
@@ -38,7 +38,6 @@ function BioInteractiveText(props) {
 
 	function onMouseLeave(e) {
 		underline(e)
-		hideImage(e)
 	}
 
 	return <span onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter} className="bio_interactive_text">{props.text}</span>;
@@ -48,11 +47,11 @@ function Bio() {
 	return (
 		<div id="bio">
 		<h1>
-		<BioInteractiveText text="Michael Barrett" image_url="mike.png"/>
+		<BioInteractiveText text="Michael Barrett" image_url="images/mike.png"/>
 		<BioText text=" is a Software Engineer based in the "/>
-		<BioInteractiveText text="Bay Area" image_url="BarrettBayBridge.jpg"/>
+		<BioInteractiveText text="Bay Area" image_url="images/BarrettBayBridge.jpg"/>
 		<BioText text=" currently working at "/>
-		<BioInteractiveText text="Medium." image_url="BarrettMedium.jpg"/>
+		<BioInteractiveText text="Medium." image_url="images/BarrettMedium.jpg"/>
 		</h1>
 		<div id="bio_background">
 		<h1>Barrett.</h1>

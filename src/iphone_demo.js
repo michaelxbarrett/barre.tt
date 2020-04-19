@@ -1,16 +1,49 @@
 const app = {
 	"Skills": [
-	{name: "XCode", image_url: "XcodeIcon.png"},
-	{name: "Swift", image_url: "SwiftIcon.png"},
-	{name: "ObjC", image_url: "ObjCIcon.png"}
+	{name: "XCode", image_url: "images/XcodeIcon.png"},
+	{name: "Swift", image_url: "images/SwiftIcon.png"},
+	{name: "ObjC", image_url: "images/ObjCIcon.png"}
 	],
 	"Job History": [
-	{name: "Medium", image_url: "MediumIcon.png"},
+	{name: "Medium (iOS)", image_url: "images/MediumIcon.png"},
 	],
 	"Follow Me": [
-	{name: "Instagram", image_url: "InstagramIcon.png", link: "https://instagram.com/miketotheworld"},
-	{name: "Twitter", image_url: "TwitterIcon.png", link:"https://twitter.com/bunandcheese_"},
+	{name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld"},
+	{name: "Twitter", image_url: "images/TwitterIcon.png", link:"https://twitter.com/bunandcheese_"},
+	],
+	"Dock": [
+	{image_url: "images/PhoneIcon.png", link: "tel:1-973-897-2538"},
+	{image_url: "images/EmailIcon.png", link:"mailto:michaelxbarrett@gmail.com"},
 	]
+}
+
+function PhoneBackground(props) {
+	return (
+		<div id="phone-background">
+		<img src="images/mike.png"/>
+		</div>
+		)
+}
+
+
+function PhoneFrame(props) {
+	return (
+		<div id="phone-frame">
+		<img src="images/iPhoneMockup.png"/>
+		</div>
+		)
+}
+
+function BottomDock(props) {
+	const dockIcons = app["Dock"].map((icon) =>
+		<AppIcon link={icon.link} image_url={icon.image_url} name={icon.name} key={icon.name}/>
+		)
+
+	return (
+		<div id="phone-dock">
+		{dockIcons}
+		</div>
+		)
 }
 
 
@@ -18,6 +51,9 @@ function Phone(props) {
 	function onClick(e) {
 		$("#app-group").css("opacity", 0)
 		$("#app-group").addClass("app_group_collapsed")
+		$("#overlay").hide()
+		$("#overlay").css("z-index", "")
+		$("#phone-frame").css("z-index", "")
 	}	
 
 	const skillIcons = app["Skills"].map((skill) =>
@@ -29,20 +65,26 @@ function Phone(props) {
 	const socialIcons = app["Follow Me"].map((skill) =>
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
 		)
+
+
 	return (
 		<div id="iphone" onClick={onClick}>
+		<PhoneBackground/>
+		<BottomDock/>
+		<AppGroupIcon name="Skills" children={ 
+			skillIcons
+		}/>
+		<AppGroupIcon name="Job History" children={ 
+			jobIcons 
+		}/>
+		<AppGroupIcon name="Follow Me" children={ 
+			socialIcons 
+		}/>
 		<Overlay children={
 			<AppFolderPopup/>
 		}/>
-		<AppGroupIcon image_url="applogo.png" name="Skills" children={ 
-			skillIcons
-		}/>
-		<AppGroupIcon image_url="applogo.png" name="Job History" children={ 
-			jobIcons 
-		}/>
-		<AppGroupIcon image_url="applogo.png" name="Follow Me" children={ 
-			socialIcons 
-		}/>
+		<PhoneFrame/>
+		
 		</div>
 		)
 }
@@ -60,6 +102,9 @@ function AppGroupIcon(props) {
 		const position = $(e.currentTarget).position()
 		$("#app-group").css("opacity", 1)
 		$("#app-group").removeClass("app_group_collapsed")
+		$("#overlay").show()
+		$("#overlay").css("z-index", "50")
+		$("#phone-frame").css("z-index", "100")
 	}
 
 	function onMouseDown(e) {
@@ -122,7 +167,7 @@ function AppGroup(props) {
 	return (
 		<React.Fragment>
 		<AppGroupContent children={
-			[<AppIcon image_url="applogo.png" name="App Name" key="app1"/>]
+			[<AppIcon name="App Name" key="app1"/>]
 		}/>
 		<div className="app-group-background"></div>
 		</React.Fragment>
@@ -140,5 +185,7 @@ function AppFolderPopup(props) {
 
 ReactDOM.render(
 	<Phone />,
-	document.getElementById('iphone_demo')
+	document.getElementById('iphone_demo'), ((x) => 
+		$("#overlay").hide()
+		)
 	);
