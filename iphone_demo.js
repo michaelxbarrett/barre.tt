@@ -1,8 +1,8 @@
 var app = {
 	"Skills": [{ name: "XCode", image_url: "images/XcodeIcon.png" }, { name: "Swift", image_url: "images/SwiftIcon.png" }, { name: "ObjC", image_url: "images/ObjCIcon.png" }],
-	"Job History": [{ name: "Medium (iOS)", image_url: "images/MediumIcon.png" }],
+	"Job History": [{ name: "Medium (iOS)", image_url: "images/MediumIcon.png", link: "https://www.linkedin.com/in/michaelxbarrett/" }],
 	"Follow Me": [{ name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld" }, { name: "Twitter", image_url: "images/TwitterIcon.png", link: "https://twitter.com/bunandcheese_" }],
-	"Dock": [{ image_url: "images/PhoneIcon.png", link: "tel:1-973-897-2538" }, { image_url: "images/EmailIcon.png", link: "mailto:michaelxbarrett@gmail.com" }]
+	"Dock": [{ image_url: "images/PhoneIcon.png", link: "tel://1-973-897-2538" }, { image_url: "images/EmailIcon.png", link: "mailto:michaelxbarrett@gmail.com" }]
 };
 
 function PhoneBackground(props) {
@@ -46,7 +46,7 @@ function Phone(props) {
 		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name });
 	});
 	var jobIcons = app["Job History"].map(function (skill) {
-		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name });
+		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name, link: skill.link });
 	});
 	var socialIcons = app["Follow Me"].map(function (skill) {
 		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name, link: skill.link });
@@ -60,6 +60,7 @@ function Phone(props) {
 		React.createElement(AppGroupIcon, { name: "Skills", children: skillIcons }),
 		React.createElement(AppGroupIcon, { name: "Job History", children: jobIcons }),
 		React.createElement(AppGroupIcon, { name: "Follow Me", children: socialIcons }),
+		React.createElement(AppIcon, { name: "SoundCloud", image_url: "images/SoundcloudLogo.jpg", link: "https://soundcloud.com/capricorndon" }),
 		React.createElement(Overlay, { children: React.createElement(AppFolderPopup, null) }),
 		React.createElement(PhoneFrame, null)
 	);
@@ -138,7 +139,7 @@ function FolderPreview(props) {
 function AppIcon(props) {
 	function onClick(e) {
 		if (props.link) {
-			window.open(props.link);
+			window.location.href = props.link;
 		}
 	}
 	return React.createElement(

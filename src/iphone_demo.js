@@ -5,14 +5,14 @@ const app = {
 	{name: "ObjC", image_url: "images/ObjCIcon.png"}
 	],
 	"Job History": [
-	{name: "Medium (iOS)", image_url: "images/MediumIcon.png"},
+	{name: "Medium (iOS)", image_url: "images/MediumIcon.png", link: "https://www.linkedin.com/in/michaelxbarrett/"},
 	],
 	"Follow Me": [
 	{name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld"},
 	{name: "Twitter", image_url: "images/TwitterIcon.png", link:"https://twitter.com/bunandcheese_"},
 	],
 	"Dock": [
-	{image_url: "images/PhoneIcon.png", link: "tel:1-973-897-2538"},
+	{image_url: "images/PhoneIcon.png", link: "tel://1-973-897-2538"},
 	{image_url: "images/EmailIcon.png", link:"mailto:michaelxbarrett@gmail.com"},
 	]
 }
@@ -60,7 +60,7 @@ function Phone(props) {
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name}/>
 		)
 	const jobIcons = app["Job History"].map((skill) =>
-		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name}/>
+		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
 		)
 	const socialIcons = app["Follow Me"].map((skill) =>
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
@@ -148,7 +148,7 @@ function FolderPreview(props) {
 function AppIcon(props) {
 	function onClick(e) {
 		if (props.link) {
-			window.open(props.link)
+			window.location.href = props.link
 		}
 	}
 	return <div onClick={onClick} className={`app_icon ${!!props.link && "hvr-pulse-shrink"}`}><div className="app_image_container"><img src={props.image_url}/></div><p>{props.name}</p></div>

@@ -34,7 +34,7 @@ function BioInteractiveText(props) {
 
 	function onMouseEnter(e) {
 		removeUnderline(e)
-		showImage(e)
+		//showImage(e)
 	}
 
 	function onMouseLeave(e) {
