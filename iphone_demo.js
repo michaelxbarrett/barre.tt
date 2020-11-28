@@ -60,7 +60,6 @@ function Phone(props) {
 		React.createElement(AppGroupIcon, { name: "Skills", children: skillIcons }),
 		React.createElement(AppGroupIcon, { name: "Job History", children: jobIcons }),
 		React.createElement(AppGroupIcon, { name: "Follow Me", children: socialIcons }),
-		React.createElement(AppIcon, { name: "SoundCloud", image_url: "images/SoundcloudLogo.jpg", link: "https://soundcloud.com/capricorndon" }),
 		React.createElement(Overlay, { children: React.createElement(AppFolderPopup, null) }),
 		React.createElement(PhoneFrame, null)
 	);

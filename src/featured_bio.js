@@ -34,14 +34,19 @@ function BioInteractiveText(props) {
 
 	function onMouseEnter(e) {
 		removeUnderline(e)
-		//showImage(e)
+		showImage(e)
+	}
+
+	function onClick(e) {
+		removeUnderline(e)
+		showImage(e)
 	}
 
 	function onMouseLeave(e) {
 		underline(e)
 	}
 
-	return <span onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter} className="bio_interactive_text">{props.text}</span>;
+	return <span onClick={onClick} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter} className="bio_interactive_text">{props.text}</span>;
 }
 
 function Bio() {
