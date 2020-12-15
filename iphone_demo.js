@@ -1,6 +1,6 @@
 var app = {
 	"Skills": [{ name: "XCode", image_url: "images/XcodeIcon.png" }, { name: "Swift", image_url: "images/SwiftIcon.png" }, { name: "ObjC", image_url: "images/ObjCIcon.png" }],
-	"Job History": [{ name: "Medium (iOS)", image_url: "images/MediumIcon.png", link: "https://www.linkedin.com/in/michaelxbarrett/" }],
+	"Job History": [{ name: "LinkedIn", image_url: "images/linkedin.png", link: "https://www.linkedin.com/in/michaelxbarrett/" }],
 	"Follow Me": [{ name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld" }, { name: "Twitter", image_url: "images/TwitterIcon.png", link: "https://twitter.com/bunandcheese_" }],
 	"Dock": [{ image_url: "images/PhoneIcon.png", link: "tel://1-973-897-2538" }, { image_url: "images/EmailIcon.png", link: "mailto:michaelxbarrett@gmail.com" }]
 };

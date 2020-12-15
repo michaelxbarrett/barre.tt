@@ -43,18 +43,13 @@ function BioInteractiveText(props) {
 		showImage(e);
 	}
 
-	function onClick(e) {
-		removeUnderline(e);
-		showImage(e);
-	}
-
 	function onMouseLeave(e) {
 		underline(e);
 	}
 
 	return React.createElement(
 		"span",
-		{ onClick: onClick, onMouseLeave: onMouseLeave, onMouseEnter: onMouseEnter, className: "bio_interactive_text" },
+		{ onMouseLeave: onMouseLeave, onMouseEnter: onMouseEnter, className: "bio_interactive_text" },
 		props.text
 	);
 }
