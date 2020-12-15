@@ -25,6 +25,7 @@
 }
 
 #phone-frame > img {
+	border-radius: 50px;
 	height: 100%;
 	width: 100%;
 }
