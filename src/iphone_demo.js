@@ -5,11 +5,14 @@ const app = {
 	{name: "ObjC", image_url: "images/ObjCIcon.png"}
 	],
 	"Job History": [
-	{name: "Medium (iOS)", image_url: "images/MediumIcon.png", link: "https://www.linkedin.com/in/michaelxbarrett/"},
+	{ name: "LinkedIn", image_url: "images/linkedin.png", link: "https://www.linkedin.com/in/michaelxbarrett/" }
 	],
 	"Follow Me": [
 	{name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld"},
 	{name: "Twitter", image_url: "images/TwitterIcon.png", link:"https://twitter.com/bunandcheese_"},
+	],
+	"Music": [
+	{name: "Soundcloud", image_url: "images/SoundcloudLogo.jpg", link: "https://soundcloud.com/capricorndon"},
 	],
 	"Dock": [
 	{image_url: "images/PhoneIcon.png", link: "tel://1-973-897-2538"},
@@ -65,6 +68,9 @@ function Phone(props) {
 	const socialIcons = app["Follow Me"].map((skill) =>
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
 		)
+	const musicIcons = app["Music"].map((skill) =>
+		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
+		)
 
 
 	return (
@@ -79,6 +85,9 @@ function Phone(props) {
 		}/>
 		<AppGroupIcon name="Follow Me" children={ 
 			socialIcons 
+		}/>
+		<AppGroupIcon name="Music" children={ 
+			musicIcons 
 		}/>
 		<Overlay children={
 			<AppFolderPopup/>

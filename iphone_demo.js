@@ -2,6 +2,7 @@ var app = {
 	"Skills": [{ name: "XCode", image_url: "images/XcodeIcon.png" }, { name: "Swift", image_url: "images/SwiftIcon.png" }, { name: "ObjC", image_url: "images/ObjCIcon.png" }],
 	"Job History": [{ name: "LinkedIn", image_url: "images/linkedin.png", link: "https://www.linkedin.com/in/michaelxbarrett/" }],
 	"Follow Me": [{ name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld" }, { name: "Twitter", image_url: "images/TwitterIcon.png", link: "https://twitter.com/bunandcheese_" }],
+	"Music": [{ name: "Soundcloud", image_url: "images/SoundcloudLogo.jpg", link: "https://soundcloud.com/capricorndon" }],
 	"Dock": [{ image_url: "images/PhoneIcon.png", link: "tel://1-973-897-2538" }, { image_url: "images/EmailIcon.png", link: "mailto:michaelxbarrett@gmail.com" }]
 };
 
@@ -51,6 +52,9 @@ function Phone(props) {
 	var socialIcons = app["Follow Me"].map(function (skill) {
 		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name, link: skill.link });
 	});
+	var musicIcons = app["Music"].map(function (skill) {
+		return React.createElement(AppIcon, { image_url: skill.image_url, name: skill.name, key: skill.name, link: skill.link });
+	});
 
 	return React.createElement(
 		"div",
@@ -60,6 +64,7 @@ function Phone(props) {
 		React.createElement(AppGroupIcon, { name: "Skills", children: skillIcons }),
 		React.createElement(AppGroupIcon, { name: "Job History", children: jobIcons }),
 		React.createElement(AppGroupIcon, { name: "Follow Me", children: socialIcons }),
+		React.createElement(AppGroupIcon, { name: "Music", children: musicIcons }),
 		React.createElement(Overlay, { children: React.createElement(AppFolderPopup, null) }),
 		React.createElement(PhoneFrame, null)
 	);
