@@ -1,3 +1,5 @@
+"use strict";
+
 function BioImageView(props) {
 	return React.createElement(
 		"div",
@@ -61,7 +63,7 @@ function Bio() {
 		React.createElement(
 			"h1",
 			null,
-			React.createElement(BioText, { text: "Hi, I'm Michael Barrett! I'm a software engineer based in the NYC area, currently building Clubhouse 👋." })
+			React.createElement(BioText, { text: "Hi, I'm Michael Barrett! I'm a software engineer based in the NYC area, currently building Clubhouse \uD83D\uDC4B." })
 		),
 		React.createElement(
 			"div",

@@ -1,3 +1,5 @@
+"use strict";
+
 var app = {
 	"Skills": [{ name: "XCode", image_url: "images/XcodeIcon.png" }, { name: "Swift", image_url: "images/SwiftIcon.png" }, { name: "ObjC", image_url: "images/ObjCIcon.png" }],
 	"Job History": [{ name: "LinkedIn", image_url: "images/linkedin.png", link: "https://www.linkedin.com/in/michaelxbarrett/" }],

@@ -4,7 +4,7 @@
   "description": "",
   "main": "featured_bio.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "transpile": "npx babel src --out-dir ."
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,10 @@
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
     "surge": "^0.23.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
   }
 }

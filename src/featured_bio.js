@@ -46,13 +46,10 @@ function BioInteractiveText(props) {
 
 function Bio() {
 	return (
-		<div id="bio" data-tilt data-tilt-maxTilt="5" data-tilt-perspective="2000" data-tilt-scale="1.2">
+		<div id="bio">
 		<h1>
-		<BioInteractiveText text="Michael Barrett" image_url="images/mike.png"/>
-		<BioText text=" is a Software Engineer based in the "/>
-		<BioInteractiveText text="Bay Area" image_url="images/BarrettBayBridge.jpg"/>
-		<BioText text=" currently working at "/>
-		<BioText text="Clubhouse."/>
+		{/* <BioInteractiveText text="Michael Barrett" image_url="images/mike.png"/> */}
+		<BioText text="Hi, I'm Michael Barrett! I'm a software engineer based in the NYC area, currently building Clubhouse 👋."/>
 		</h1>
 		<div id="bio_background">
 		<h1>Barrett.</h1>
