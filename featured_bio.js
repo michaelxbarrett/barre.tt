@@ -61,7 +61,7 @@ function Bio() {
 		React.createElement(
 			"h1",
 			null,
-			React.createElement(BioText, { text: "Michael Barrett is a software engineer based in the NYC Area currently working at Clubhouse" })
+			React.createElement(BioText, { text: "Hi, I'm Michael! I'm a software engineer based in the NYC area, currently building Clubhouse 👋" })
 		),
 		React.createElement(
 			"div",
