@@ -61,11 +61,7 @@ function Bio() {
 		React.createElement(
 			"h1",
 			null,
-			React.createElement(BioInteractiveText, { text: "Michael Barrett", image_url: "images/mike.png" }),
-			React.createElement(BioText, { text: " is a Software Engineer based in the " }),
-			React.createElement(BioInteractiveText, { text: "Bay Area", image_url: "images/BarrettBayBridge.jpg" }),
-			React.createElement(BioText, { text: " currently working at " }),
-			React.createElement(BioInteractiveText, { text: "Medium.", image_url: "images/BarrettMedium.jpg" })
+			React.createElement(BioText, { text: "Michael Barrett is a software engineer based in the NYC Area currently working at Clubhouse" })
 		),
 		React.createElement(
 			"div",

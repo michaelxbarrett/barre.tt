@@ -52,7 +52,7 @@ function Bio() {
 		<BioText text=" is a Software Engineer based in the "/>
 		<BioInteractiveText text="Bay Area" image_url="images/BarrettBayBridge.jpg"/>
 		<BioText text=" currently working at "/>
-		<BioInteractiveText text="Medium." image_url="images/BarrettMedium.jpg"/>
+		<BioText text="Clubhouse."/>
 		</h1>
 		<div id="bio_background">
 		<h1>Barrett.</h1>
