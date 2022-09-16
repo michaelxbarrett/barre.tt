@@ -5,7 +5,8 @@ const app = {
 	{name: "ObjC", image_url: "images/ObjCIcon.png"}
 	],
 	"Job History": [
-	{ name: "LinkedIn", image_url: "images/linkedin.png", link: "https://www.linkedin.com/in/michaelxbarrett/" }
+	{ name: "Medium", image_url: "images/medium_logo.png", link: "https://www.linkedin.com/in/michaelxbarrett/" },
+	{ name: "Clubhouse", image_url: "images/clubhouse_logo.png", link: "https://www.linkedin.com/in/michaelxbarrett/" },
 	],
 	"Follow Me": [
 	{name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld"},

@@ -172,6 +172,9 @@
 	width: 83%;
 	padding-top: 83%;
 	margin: auto;
+	backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+	border-radius: 10px;
 }
 
 .folder_preview_app_icon {
@@ -206,9 +209,11 @@
 	border-radius: 15px;
 	display: flex;
 	justify-content: center;
-	background-color: #000000a6;
 	padding: 10px;
 	z-index: 5;
+	background-color: #00000054;
+	backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 @media only screen and (max-width: 600px) {
