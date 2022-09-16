@@ -24,7 +24,22 @@
 	pointer-events:none;
 }
 
+#phone-frame-with-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events:none;
+}
+
 #phone-frame > img {
+	border-radius: 50px;
+	height: 100%;
+	width: 100%;
+}
+
+#phone-frame-with-background > img {
 	border-radius: 50px;
 	height: 100%;
 	width: 100%;
@@ -55,7 +70,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	padding: 17% 7% 36%;
+	padding: 27% 7% 36%;
 }
 
 .app_icon {
@@ -119,6 +134,10 @@
 	backdrop-filter: blur(8px);
 	-webkit-backdrop-filter: blur(8px);
 	display: flex;
+	width: 98%;
+    height: 98%;
+    margin: auto;
+    border-radius: 15%;
 }
 
 .app-group-background {
@@ -162,12 +181,13 @@
 
 .folder_preview_app_icon > img {
 	width: 70%;
+	border-radius: 20%;
 }
 
 .folder_preview {
 	display: flex;
 	height: 100%;
-	background-color: #000000b3;
+	background-color: #0000009c;
 	padding: 5px;
 	box-sizing: border-box;
 	border-radius: 5px;
@@ -188,6 +208,7 @@
 	justify-content: center;
 	background-color: #000000a6;
 	padding: 10px;
+	z-index: 5;
 }
 
 @media only screen and (max-width: 600px) {

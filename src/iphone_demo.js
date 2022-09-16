@@ -29,10 +29,18 @@ function PhoneBackground(props) {
 }
 
 
+function PhoneFrameWithBackground(props) {
+	return (
+		<div id="phone-frame-with-background">
+		<img src="images/iphone14_with_background.png"/>
+		</div>
+		)
+}
+
 function PhoneFrame(props) {
 	return (
 		<div id="phone-frame">
-		<img src="images/iPhoneMockup.png"/>
+		<img src="images/iphone14.png"/>
 		</div>
 		)
 }
@@ -75,7 +83,7 @@ function Phone(props) {
 
 	return (
 		<div id="iphone" onClick={onClick}>
-		<PhoneBackground/>
+		{/* <PhoneBackground/> */}
 		<BottomDock/>
 		<AppGroupIcon name="Skills" children={ 
 			skillIcons
@@ -92,6 +100,7 @@ function Phone(props) {
 		<Overlay children={
 			<AppFolderPopup/>
 		}/>
+		<PhoneFrameWithBackground/>
 		<PhoneFrame/>
 		
 		</div>

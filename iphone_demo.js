@@ -16,11 +16,19 @@ function PhoneBackground(props) {
 	);
 }
 
+function PhoneFrameWithBackground(props) {
+	return React.createElement(
+		"div",
+		{ id: "phone-frame-with-background" },
+		React.createElement("img", { src: "images/iphone14_with_background.png" })
+	);
+}
+
 function PhoneFrame(props) {
 	return React.createElement(
 		"div",
 		{ id: "phone-frame" },
-		React.createElement("img", { src: "images/iPhoneMockup.png" })
+		React.createElement("img", { src: "images/iphone14.png" })
 	);
 }
 
@@ -61,13 +69,13 @@ function Phone(props) {
 	return React.createElement(
 		"div",
 		{ id: "iphone", onClick: onClick },
-		React.createElement(PhoneBackground, null),
 		React.createElement(BottomDock, null),
 		React.createElement(AppGroupIcon, { name: "Skills", children: skillIcons }),
 		React.createElement(AppGroupIcon, { name: "Job History", children: jobIcons }),
 		React.createElement(AppGroupIcon, { name: "Follow Me", children: socialIcons }),
 		React.createElement(AppGroupIcon, { name: "Music", children: musicIcons }),
 		React.createElement(Overlay, { children: React.createElement(AppFolderPopup, null) }),
+		React.createElement(PhoneFrameWithBackground, null),
 		React.createElement(PhoneFrame, null)
 	);
 }
