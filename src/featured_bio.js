@@ -49,7 +49,7 @@ function Bio() {
 		<div id="bio">
 		<h1>
 		{/* <BioInteractiveText text="Michael Barrett" image_url="images/mike.png"/> */}
-		<BioText text="Hi, I'm Michael Barrett! I'm a software engineer based in the NYC area, currently building Clubhouse 👋."/>
+		<BioText text="Hi, I'm Michael Barrett! I'm a software engineer based in the NYC area, currently building Clubhouse 👋. Use the phone to learn more about me."/>
 		</h1>
 		<div id="bio_background">
 		<h1>Barrett.</h1>
