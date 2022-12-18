@@ -1,6 +1,6 @@
 const app = {
 	"Skills": [
-	{name: "XCode", image_url: "images/XcodeIcon.png"},
+	{name: "Xcode", image_url: "images/XcodeIcon.png"},
 	{name: "Swift", image_url: "images/SwiftIcon.png"},
 	{name: "ObjC", image_url: "images/ObjCIcon.png"}
 	],
