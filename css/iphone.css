@@ -71,6 +71,10 @@
 	top: 0;
 	left: 0;
 	padding: 27% 7% 36%;
+	flex-wrap: wrap;
+    align-content: flex-start;
+    row-gap: 20px;
+    align-self: center;
 }
 
 .app_icon {

@@ -17,14 +17,14 @@ body {
 }
 
 #left_panel {
+	width: 345px;
 	display: flex;
-	flex-basis: 40%;
 	background-color: white;
 	height: 100%;
 }
 
 #right_panel {
-	flex-basis:60%;
+	flex-basis:40%;
 	height: 100%;
 	display: flex;
 	align-items: center;

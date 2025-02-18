@@ -1,88 +1,60 @@
 "use strict";
 
 function BioImageView(props) {
-	return React.createElement(
-		"div",
-		{ id: "bio_image_view" },
-		React.createElement(BioImage, { image_url: props.image_url })
-	);
+  return /*#__PURE__*/React.createElement("div", {
+    id: "bio_image_view"
+  }, /*#__PURE__*/React.createElement(BioImage, {
+    image_url: props.image_url
+  }));
 }
-
 function BioImage(props) {
-	return React.createElement("img", { src: props.image_url });
+  return /*#__PURE__*/React.createElement("img", {
+    src: props.image_url
+  });
 }
-
 function BioText(props) {
-	return React.createElement(
-		"span",
-		null,
-		props.text
-	);
+  return /*#__PURE__*/React.createElement("span", null, props.text);
 }
-
 function BioInteractiveText(props) {
-	function underline(e) {
-		$(".bio_interactive_text").css("visibility", "visible");
-	}
-
-	function removeUnderline(e) {
-		$(".bio_interactive_text").removeClass("underlined");
-		$(".bio_interactive_text").addClass("not_underlined");
-	}
-
-	function showImage(e) {
-		var phoneBackground = $("#phone-background > img");
-		if (phoneBackground.attr("src") == props.image_url) {
-			return;
-		}
-		phoneBackground.fadeOut(400, function () {
-			phoneBackground.attr("src", props.image_url);
-		}).fadeIn(400);
-	}
-
-	function onMouseEnter(e) {
-		removeUnderline(e);
-		showImage(e);
-	}
-
-	function onMouseLeave(e) {
-		underline(e);
-	}
-
-	return React.createElement(
-		"span",
-		{ onMouseLeave: onMouseLeave, onMouseEnter: onMouseEnter, className: "bio_interactive_text" },
-		props.text
-	);
+  function underline(e) {
+    $(".bio_interactive_text").css("visibility", "visible");
+  }
+  function removeUnderline(e) {
+    $(".bio_interactive_text").removeClass("underlined");
+    $(".bio_interactive_text").addClass("not_underlined");
+  }
+  function showImage(e) {
+    var phoneBackground = $("#phone-background > img");
+    if (phoneBackground.attr("src") == props.image_url) {
+      return;
+    }
+    phoneBackground.fadeOut(400, function () {
+      phoneBackground.attr("src", props.image_url);
+    }).fadeIn(400);
+  }
+  function onMouseEnter(e) {
+    removeUnderline(e);
+    showImage(e);
+  }
+  function onMouseLeave(e) {
+    underline(e);
+  }
+  return /*#__PURE__*/React.createElement("span", {
+    onMouseLeave: onMouseLeave,
+    onMouseEnter: onMouseEnter,
+    className: "bio_interactive_text"
+  }, props.text);
 }
-
 function Bio() {
-	return React.createElement(
-		"div",
-		{ id: "bio" },
-		React.createElement(
-			"h1",
-			null,
-			React.createElement(BioText, { text: "use the phone to learn more about me." })
-		),
-		React.createElement(
-			"div",
-			{ id: "bio_background" },
-			React.createElement(
-				"h1",
-				null,
-				"Barrett."
-			)
-		)
-	);
+  return /*#__PURE__*/React.createElement("div", {
+    id: "bio"
+  }, /*#__PURE__*/React.createElement("h1", null, /*#__PURE__*/React.createElement(BioText, {
+    text: "\uD83D\uDCF2 use the phone to learn more about me."
+  })));
 }
-
 function FeaturedSection() {
-	return React.createElement(
-		"div",
-		{ id: "featured_section" },
-		React.createElement(Bio, null)
-	);
+  return /*#__PURE__*/React.createElement("div", {
+    id: "featured_section"
+  }, /*#__PURE__*/React.createElement(Bio, null));
 }
-
-ReactDOM.render(React.createElement(FeaturedSection, null), document.getElementById('featured_bio'));
+ReactDOM.render(/*#__PURE__*/React.createElement(FeaturedSection, null), document.getElementById('featured_bio'));
