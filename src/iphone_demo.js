@@ -1,18 +1,21 @@
 const app = {
-	"Skills": [
-	{name: "Xcode", image_url: "images/XcodeIcon.png"},
-	{name: "Swift", image_url: "images/SwiftIcon.png"},
-	{name: "ObjC", image_url: "images/ObjCIcon.png"}
+	"my app": [
+	{name: "granny seh", image_url: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c1/77/1c/c1771c92-21cd-51f9-baa1-feb666eb4c03/AppIcon-0-0-1x_U007ephone-0-85-220.png/460x0w.webp"}
 	],
-	"Job History": [
-	{ name: "Medium", image_url: "images/medium_logo.png", link: "https://www.linkedin.com/in/michaelxbarrett/" },
-	{ name: "Clubhouse", image_url: "images/clubhouse_logo.png", link: "https://www.linkedin.com/in/michaelxbarrett/" },
+	"skills": [
+	{name: "xcode", image_url: "images/XcodeIcon.png"},
+	{name: "swift", image_url: "images/SwiftIcon.png"},
+	{name: "objc", image_url: "images/ObjCIcon.png"}
 	],
-	"Follow Me": [
-	{name: "Instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld"},
-	{name: "Twitter", image_url: "images/TwitterIcon.png", link:"https://twitter.com/bunandcheese_"},
+	"job history": [
+	{ name: "medium", image_url: "images/medium_logo.png", link: "https://www.linkedin.com/in/michaelxbarrett/" },
+	{ name: "clubhouse", image_url: "images/clubhouse_logo.png", link: "https://www.linkedin.com/in/michaelxbarrett/" },
 	],
-	"Music": [
+	"socials": [
+	{name: "instagram", image_url: "images/InstagramIcon.png", link: "https://instagram.com/miketotheworld"},
+	{name: "twitter", image_url: "images/TwitterIcon.png", link:"https://twitter.com/bunandcheese_"},
+	],
+	"music": [
 	{name: "Soundcloud", image_url: "images/SoundcloudLogo.jpg", link: "https://soundcloud.com/capricorndon"},
 	],
 	"Dock": [
@@ -67,17 +70,19 @@ function Phone(props) {
 		$("#overlay").css("z-index", "")
 		$("#phone-frame").css("z-index", "")
 	}	
-
-	const skillIcons = app["Skills"].map((skill) =>
+	const myAppIcons = app["skills"].map((skill) =>
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name}/>
 		)
-	const jobIcons = app["Job History"].map((skill) =>
+	const skillIcons = app["skills"].map((skill) =>
+		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name}/>
+		)
+	const jobIcons = app["job history"].map((skill) =>
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
 		)
-	const socialIcons = app["Follow Me"].map((skill) =>
+	const socialIcons = app["follow me"].map((skill) =>
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
 		)
-	const musicIcons = app["Music"].map((skill) =>
+	const musicIcons = app["music"].map((skill) =>
 		<AppIcon image_url={skill.image_url} name={skill.name} key={skill.name} link={skill.link}/>
 		)
 
@@ -86,16 +91,19 @@ function Phone(props) {
 		<div id="iphone" onClick={onClick}>
 		{/* <PhoneBackground/> */}
 		<BottomDock/>
-		<AppGroupIcon name="Skills" children={ 
+		<AppGroupIcon name="my app" children={ 
+			myAppIcons
+		}/>
+		<AppGroupIcon name="skills" children={ 
 			skillIcons
 		}/>
-		<AppGroupIcon name="Job History" children={ 
+		<AppGroupIcon name="job history" children={ 
 			jobIcons 
 		}/>
-		<AppGroupIcon name="Follow Me" children={ 
+		<AppGroupIcon name="socials" children={ 
 			socialIcons 
 		}/>
-		<AppGroupIcon name="Music" children={ 
+		<AppGroupIcon name="music" children={ 
 			musicIcons 
 		}/>
 		<Overlay children={
@@ -118,7 +126,6 @@ function AppGroupIcon(props) {
 
 		$("#app-group").show()			
 		openAppFolderPopup()
-		const position = $(e.currentTarget).position()
 		$("#app-group").css("opacity", 1)
 		$("#app-group").removeClass("app_group_collapsed")
 		$("#overlay").show()
